@@ -1,0 +1,93 @@
+/*  Root : Pseudoclasse que seleciona a raiz do html e muda todos os itens */
+
+:root {
+  font-family: "Inter";
+}
+
+body {
+  margin: 0;
+  background-color: #141414;
+}
+.social-card {
+  background-color: #1f1f1f;
+  display: inline-block;
+  padding: 40px;
+  min-width: 384px;
+  border-radius: 12px;
+
+}
+
+.social-card__image {
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+.social-card__main-heading {
+  font-size: 24px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+.social-card__secondary-heading {
+    color: #c4f82a;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+.social-card__paragraph{
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+}
+
+.button{
+    display: block;
+    color: #fff;
+    /* tirando as características de link */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    background-color: #333;
+    border-radius: 8px;
+    /* aqui tem que ver no figma, é a distância a partir do tamanho da fonte para outro item */
+    line-height: 150%;
+    /* essa é o tamanho da distância entre o texto e a parte de cima do botão */
+    padding: 12px 0;
+    /* essa é a distância entre os botões */
+    margin-top: 16px;
+    position: relative;
+    /* esconder o before */
+    overflow: hidden;
+}
+
+/* faz com que os botões mudem de cor quando passa o mouse em cima */
+.button--hover:hover{
+    background-color: #c4f82a;
+    color: #333;
+}
+
+
+/* fazer uma animação. Usar o before para fazer algo antes, sempre precisa colocar um content, mesmo que em branco */
+.button--hover::before {
+    content: "";
+/* colocar a altura do botão que é somar o padding com o tamanho do meio. ex: 12 em cima e 12 embaixo + valor em azul que é 21, total de 45 */
+height: 45px;
+width: 10%;
+background-color: #c4f82a;
+display: inline-block;
+/* usar outra posição dentro do before para descolar do elemento pai */
+position: absolute;
+top: 0;
+left: -15%;
+/* para o item permanecer onde ele está no começo da animação */
+transform: translateX(0) skew(150deg);
+transition: transform 2s;
+border: 1px solid ;
+
+}
+/* Significado do .button--hover:hover::before quando passar o mouse passar em cima do botão hover eu quero selecionar o elemento que está depois dele e fazer a animação abaixo, para isso acontecer tem que comentar a opção de hover inicial */
+.button--hover:hover::before{
+    transform: translate(2000%) skew(150deg);
+    background-color: #333;
+}
